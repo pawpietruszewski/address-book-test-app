@@ -1,17 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Loader from './Loader';
+import Search from './Search';
 
-describe('Loader', () => {
-  const wrap = shallow(<Loader end={false} show />);
+describe('Search', () => {
+  const wrap = shallow(<Search />);
 
-  it('renders with end = false', () => {
+  it('should render without throwing an error', () => {
     expect(wrap);
-    expect(wrap.text()).toBe('Loading...');
-  });
-
-  it('renders with end = true', () => {
-    wrap.setProps({ end: true });
-    expect(wrap.text()).toBe('End of users catalog');
   });
 });

@@ -15,6 +15,7 @@ describe('UserTile', () => {
     state="Queensland"
     postcode="1046"
     phone="05-3370-8052"
+    id="1"
   />);
 
   it('should render without throwing an error', () => {
