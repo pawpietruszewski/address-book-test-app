@@ -26,11 +26,12 @@ const customStyles = {
   },
 };
 
-interface UserTileProps {
+export interface UserTileProps {
   cell: string;
   city: string;
   email: string;
   firstName: string;
+  id: string;
   lastName: string;
   phone: string;
   postcode: string;

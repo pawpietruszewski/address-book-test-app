@@ -6,7 +6,9 @@ export const Tile = styled.div`
   border-radius: 20px;
   border: 1px solid ${colors.black};
   box-sizing: border-box;
-  flex: 0 0 20%;
+  cursor: pointer;
+  flex: 0 0 calc(20% - 20px);
+  margin: 10px;
   padding: 20px;
 `;
 
