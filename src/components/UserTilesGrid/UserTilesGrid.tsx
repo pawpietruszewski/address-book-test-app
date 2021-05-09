@@ -6,7 +6,7 @@ import {
 
 import UserTile, { UserTileProps } from '../UserTile/UserTile';
 
-interface UserTilesGridProps {
+export interface UserTilesGridProps {
   users: UserTileProps[]
 }
 
@@ -18,8 +18,8 @@ const UserTilesGrid = ({
   }
   return (
     <Grid>
-      {users.map((user: UserTileProps, index: number) => (
-        <UserTile {...user} key={`${user.firstName}${index}`} />
+      {users.map((user: UserTileProps) => (
+        <UserTile {...user} key={user.id} />
       ))}
     </Grid>
   );

@@ -1,7 +1,6 @@
 const exampleUser = {
   thumbnail: 'https://randomuser.me/api/portraits/men/44.jpg',
-  firstName: 'Tim',
-  lastName: 'Wright',
+  name: 'Tim Wright',
   userName: 'tinykoala227',
   email: 'tim.wright@example.com',
   cell: '0479-199-052',
@@ -15,13 +14,13 @@ const exampleUser = {
 
 export default {
   users: [
-    exampleUser,
-    exampleUser,
-    exampleUser,
-    exampleUser,
-    exampleUser,
-    exampleUser,
-    exampleUser,
-    exampleUser,
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
+    { ...exampleUser, id: Math.random().toString(36).substr(2, 9) },
   ],
 };

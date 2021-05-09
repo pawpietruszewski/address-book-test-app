@@ -34,6 +34,8 @@ export const ImageContainer = styled.div`
 `;
 
 export const Data = styled.ul`
+  margin: auto;
+  max-width: 310px;
   padding-top: 20px;
   text-align: center;
   width: 100%;

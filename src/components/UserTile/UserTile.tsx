@@ -30,9 +30,8 @@ export interface UserTileProps {
   cell: string;
   city: string;
   email: string;
-  firstName: string;
+  name: string;
   id: string;
-  lastName: string;
   phone: string;
   postcode: string;
   state: string;
@@ -45,8 +44,7 @@ const UserTile = ({
   cell,
   city,
   email,
-  firstName,
-  lastName,
+  name,
   phone,
   postcode,
   state,
@@ -66,17 +64,11 @@ const UserTile = ({
 
   const basicDataTemplate = (
     <Data>
-      {firstName && (
+      {name && (
         <Item>
           First Name:
-          <span>{firstName}</span>
+          <span>{name}</span>
         </Item>
-      )}
-      {lastName && (
-      <Item>
-        Last Name:
-        <span>{lastName}</span>
-      </Item>
       )}
       {userName && (
       <Item>
@@ -109,7 +101,7 @@ const UserTile = ({
                 srcSet={`${thumbnail} 2x,
                         ${thumbnail} 1x`}
               />
-              <img src={thumbnail} alt={firstName} />
+              <img src={thumbnail} alt={name} />
             </picture>
           </ImageWrapper>
         </ImageContainer>
