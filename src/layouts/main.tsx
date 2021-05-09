@@ -32,7 +32,7 @@ const main = ({
     </Head>
     <GlobalStyles />
     <Header title={title} />
-    <Main>
+    <Main id="main">
       { children }
     </Main>
   </>
