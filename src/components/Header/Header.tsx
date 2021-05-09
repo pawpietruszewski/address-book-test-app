@@ -6,6 +6,8 @@ import {
   LogoWrapper,
   Title,
   Top,
+  Nav,
+  NavItem,
 } from './style';
 
 const Header = ({
@@ -20,17 +22,14 @@ const Header = ({
         {title}
       </Title>
     </Top>
-    <ul>
-      <li>
+    <Nav>
+      <NavItem>
         <Link href="/">Home</Link>
-      </li>
-      <li>
-        <Link href="/search">Search</Link>
-      </li>
-      <li>
+      </NavItem>
+      <NavItem>
         <Link href="/settings">Settings</Link>
-      </li>
-    </ul>
+      </NavItem>
+    </Nav>
   </>
 );
 
