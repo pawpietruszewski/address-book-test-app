@@ -1,16 +1,20 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import UserTilesGrid from '../components/UserTilesGrid';
 import Loader from '../components/Loader';
 import { UserTilesGridProps } from '../components/UserTilesGrid/UserTilesGrid';
 import { fetchUsers } from '../utility/randomuser';
+import Search from '../components/Search';
+import FilterContext from '../contexts/filterContext';
 
 export default function Home({
   users,
 }: UserTilesGridProps): JSX.Element {
   const [userList, setUserList] = useState(users);
+  const [displayedUserList, setDisplayedUserList] = useState(users);
   const [page, setPage] = useState(2);
   const [endPages, setEndPages] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+  const [filterState, setFilterState] = useState({ filter: '' });
   const scrollY = useRef(0);
   const windowHeight = useRef(0);
   const documentHeight = useRef(0);
@@ -61,10 +65,19 @@ export default function Home({
     };
   }, [onScroll]);
 
+  useEffect(() => {
+    const filteredUserList = filterState.filter
+      ? userList.filter((user) => user.name.indexOf(filterState.filter) > -1) : userList;
+    setDisplayedUserList(filteredUserList);
+  }, [filterState, userList]);
+
   return (
     <div>
+      <FilterContext.Provider value={{ setFilterState }}>
+        <Search />
+      </FilterContext.Provider>
       <UserTilesGrid
-        users={userList}
+        users={displayedUserList}
       />
       <Loader end={endPages} show={showLoader} />
     </div>
