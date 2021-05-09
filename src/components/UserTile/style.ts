@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import mixins from '../../styles/mixins';
-import breakpoints from '../../styles/breakpoints';
 
 export const Tile = styled.div`
-  flex: 0 0 20%;
-  border: 1px solid ${colors.black};
   border-radius: 20px;
-  padding: 20px;
+  border: 1px solid ${colors.black};
   box-sizing: border-box;
+  flex: 0 0 20%;
+  padding: 20px;
 `;
 
 export const ImageWrapper = styled.div`
@@ -27,9 +26,9 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  margin: auto;
   max-width: 128px;
   width: 100%;
-  margin: auto;
 `;
 
 export const Data = styled.ul`
@@ -39,8 +38,8 @@ export const Data = styled.ul`
 `;
 
 export const Item = styled.li`
-  padding: 3px 20px;
   font-weight: bold;
+  padding: 3px 20px;
 
   span {
     font-weight: normal;
@@ -54,36 +53,36 @@ export const ModalContent = styled.div`
 `;
 
 export const CloseModal = styled.button`
-  width: 20px;
   height: 20px;
   position: absolute;
-  top: 10px;
   right: 10px;
+  top: 10px;
+  width: 20px;
   
   span {
     ${mixins.visuallyHidden}
   }
 
   &::after {
+    background-color: ${colors.black};
     content: '';
+    height: 2px;
+    left:0;
     position: absolute;
     top: 50%;
-    left:0;
-    width: 20px;
-    height: 2px;
-    background-color: ${colors.black};
     transform: rotate(45deg);
+    width: 20px;
   }
 
   &::before {
+    background-color: ${colors.black};
     content: '';
+    height: 2px;
+    left:0;
     position: absolute;
     top: 50%;
-    left:0;
-    width: 20px;
-    height: 2px;
-    background-color: ${colors.black};
     transform: rotate(-45deg);
+    width: 20px;
   }
 
 `;

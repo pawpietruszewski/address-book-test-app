@@ -1,7 +1,7 @@
 import React from 'react';
+import Modal from 'react-modal';
 import { mount } from 'enzyme';
 import UserTile from './UserTile';
-import Modal from 'react-modal';
 
 describe('UserTile', () => {
   const wrap = mount(<UserTile
