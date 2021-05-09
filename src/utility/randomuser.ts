@@ -13,6 +13,7 @@ export const fetchUsers = function fetchUsersPage(page: number): Promise<UsersPr
 
   return axios.get(endpoint)
     .then((response) => {
+
       const results = get(response, 'data.results', []);
       if (!results.length) {
         throw new Error('Data not available');

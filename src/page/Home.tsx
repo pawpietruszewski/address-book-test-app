@@ -1,4 +1,3 @@
-
 import UserTilesGrid from '../components/UserTilesGrid';
 import { UserTilesGridProps } from '../components/UserTilesGrid/UserTilesGrid';
 
