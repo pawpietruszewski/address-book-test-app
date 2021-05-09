@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import { Main } from './style';
 import GlobalStyles from '../styles/globalStyles';
 
+interface MainProps {
+  children: ReactElement | ReactElement [];
+  title: string;
+  description?: string;
+}
+
 const main = ({
   children,
-  title = 'App',
+  title,
   description = '',
-}) => (
+}: MainProps): JSX.Element => (
   <>
     <Head>
       <meta charSet="utf-8" />
@@ -26,17 +31,11 @@ const main = ({
       <meta name="theme-color" content="#ffffff" />
     </Head>
     <GlobalStyles />
-    <Header title={'Web'} />
+    <Header title={title} />
     <Main>
       { children }
     </Main>
   </>
 );
-
-main.propTypes = {
-  children: PropTypes.node.isRequired,
-  description: PropTypes.string,
-  title: PropTypes.string,
-};
 
 export default main;
