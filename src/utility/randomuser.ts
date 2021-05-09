@@ -1,19 +1,15 @@
 import axios from 'axios';
 import get from 'lodash.get';
 import { USERS_ENDPOINT, ENDPOINT_SEED, RESULTS_AMOUNT } from '../constant/config';
+import { UserTileProps } from '../UserTile/UserTile';
 
 export const VARI = 'tesst';
 
-interface UsersProps {
-  name: string;
-}
-
-export const fetchUsers = function fetchUsersPage(page: number): Promise<UsersProps> {
+export const fetchUsers = function fetchUsersPage(page: number): Promise<UserTileProps[]> {
   const endpoint = `${USERS_ENDPOINT}?results=${RESULTS_AMOUNT}&seed=${ENDPOINT_SEED}&page=${page}`;
 
   return axios.get(endpoint)
     .then((response) => {
-
       const results = get(response, 'data.results', []);
       if (!results.length) {
         throw new Error('Data not available');
@@ -30,7 +26,7 @@ export const fetchUsers = function fetchUsersPage(page: number): Promise<UsersPr
         street: `${get(user, 'location.number', '')} ${get(user, 'location.name', '')}`,
         thumbnail: get(user, 'picture.large', ''),
         userName: get(user, 'login.username', ''),
-        id: get(user, 'id.value') || user.email,
+        id: get(user, 'id.value') || `${user.email}${get(user, 'login.username', '')}`,
       }
       ));
     });

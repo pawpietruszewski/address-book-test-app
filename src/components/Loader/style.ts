@@ -7,5 +7,5 @@ export default styled.div`
   text-align: center;
   color: ${colors.black};
   padding: 5px 0;
-  opacity: ${({ show }: { show?: boolean }) => (show ? 'true' : 'false')}
+  opacity: ${({ show }: { show?: boolean }) => (show ? '1' : '0')}
 `;
