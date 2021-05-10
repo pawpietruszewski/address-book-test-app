@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import mixins from '../../styles/mixins';
+import breakpoints from '../../styles/breakpoints';
 
 export const Tile = styled.div`
   border-radius: 20px;
   border: 1px solid ${colors.black};
   box-sizing: border-box;
   cursor: pointer;
-  flex: 0 0 calc(20% - 20px);
-  margin: 10px;
+  flex: 0 0 100%;
+  margin: 10px 0;
   padding: 20px;
+
+  @media screen and (min-width: ${breakpoints.mobile}) {
+    flex: 0 0 calc(20% - 20px);
+    margin: 10px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -35,7 +41,7 @@ export const ImageContainer = styled.div`
 
 export const Data = styled.ul`
   margin: auto;
-  max-width: 310px;
+  max-width: 270px;
   padding-top: 20px;
   text-align: center;
   width: 100%;
