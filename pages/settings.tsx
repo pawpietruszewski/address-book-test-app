@@ -1,7 +1,3 @@
-import React from 'react';
+import Settings from '../src/page/Settings';
 
-export default function Settings(): JSX.Element {
-  return (
-    <div>Settings</div>
-  );
-}
+export default Settings;

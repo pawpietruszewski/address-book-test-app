@@ -13,7 +13,7 @@ export interface UserTilesGridProps {
 const UserTilesGrid = ({
   users,
 }: UserTilesGridProps): JSX.Element => {
-  if (!users.length) {
+  if (!users || !users.length) {
     return (<></>);
   }
   return (
