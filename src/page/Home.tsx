@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import UserTilesGrid from '../components/UserTilesGrid';
 import Loader from '../components/Loader';
 import { fetchUsers } from '../utility/randomuser';
 import Search from '../components/Search';
 import FilterContext from '../contexts/filterContext';
+import { SettingsContext } from '../contexts/settingsContext';
 
 export default function Home(): JSX.Element {
+  const { settings } = useContext(SettingsContext);
   const [userList, setUserList] = useState([]);
   const [displayedUserList, setDisplayedUserList] = useState([]);
   const [page, setPage] = useState(1);
@@ -17,6 +19,7 @@ export default function Home(): JSX.Element {
   const documentHeight = useRef(0);
 
   const loadUserList = () => {
+    console.log(settings);
     fetchUsers(page)
       .then((data) => {
         const newList = userList.concat(data);

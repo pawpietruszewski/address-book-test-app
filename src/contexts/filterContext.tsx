@@ -9,7 +9,7 @@ type FilterContextValue = {
 
 const filterCtxDefaultValue: FilterContextValue = {
   filterState: { filter: '' },
-  setFilterState: filterState => {},
+  setFilterState: () => {},
 };
 
 const LanguageContext = React.createContext(filterCtxDefaultValue);
