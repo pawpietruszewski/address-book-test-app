@@ -19,8 +19,10 @@ export default function Home(): JSX.Element {
   const documentHeight = useRef(0);
 
   const loadUserList = () => {
-    console.log(settings);
-    fetchUsers(page)
+    fetchUsers({
+      page,
+      nat: settings && settings.nat,
+    })
       .then((data) => {
         const newList = userList.concat(data);
         setUserList(newList);

@@ -15,14 +15,15 @@ describe('UserTile', () => {
     state="Queensland"
     postcode="1046"
     phone="05-3370-8052"
+    nat="ES"
     id="1"
   />);
 
   it('should render without throwing an error', () => {
     expect(wrap);
-    expect(wrap.find('li')).toHaveLength(3);
+    expect(wrap.find('li')).toHaveLength(4);
     const texts = wrap.find('span').map((node) => node.text());
-    expect(texts).toEqual(['Tim Wright', 'tinykoala227', 'tim.wright@example.com']);
+    expect(texts).toEqual(['Tim Wright', 'tinykoala227', 'tim.wright@example.com', 'ES']);
   });
 
   it('modal is open on tile click and renders content', () => {
@@ -31,6 +32,6 @@ describe('UserTile', () => {
     expect(wrap.find(Modal).prop('isOpen')).toBe(true);
 
     const texts = wrap.find(Modal).find('ul').find('span').map((node) => node.text());
-    expect(texts).toEqual(['Tim Wright', 'tinykoala227', 'tim.wright@example.com', 'Bollinger Rd 4155', 'Sunshine Coast', 'Queensland', '1046', '05-3370-8052', '0479-199-052']);
+    expect(texts).toEqual(['Tim Wright', 'tinykoala227', 'tim.wright@example.com', 'ES', 'Bollinger Rd 4155', 'Sunshine Coast', 'Queensland', '1046', '05-3370-8052', '0479-199-052']);
   });
 });

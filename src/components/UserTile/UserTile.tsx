@@ -30,8 +30,9 @@ export interface UserTileProps {
   cell: string;
   city: string;
   email: string;
-  name: string;
   id: string;
+  name: string;
+  nat: string;
   phone: string;
   postcode: string;
   state: string;
@@ -45,6 +46,7 @@ const UserTile = ({
   city,
   email,
   name,
+  nat,
   phone,
   postcode,
   state,
@@ -80,6 +82,12 @@ const UserTile = ({
       <Item>
         Email:
         <span>{email}</span>
+      </Item>
+      )}
+      {nat && (
+      <Item>
+        Nationality:
+        <span>{nat}</span>
       </Item>
       )}
     </Data>

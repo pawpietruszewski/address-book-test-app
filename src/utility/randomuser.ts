@@ -5,8 +5,15 @@ import { UserTileProps } from '../UserTile/UserTile';
 
 export const VARI = 'tesst';
 
-export const fetchUsers = function fetchUsersPage(page: number): Promise<UserTileProps[]> {
-  const endpoint = `${USERS_ENDPOINT}?results=${RESULTS_AMOUNT}&seed=${ENDPOINT_SEED}&page=${page}`;
+export const fetchUsers = function fetchUsersPage({
+  page,
+  nat = '',
+} : {
+  page: number,
+  nat: string,
+}): Promise<UserTileProps[]> {
+  const natEndpointPart = nat ? `&nat=${nat}` : '';
+  const endpoint = `${USERS_ENDPOINT}?results=${RESULTS_AMOUNT}&seed=${ENDPOINT_SEED}&page=${page}${natEndpointPart}`;
 
   return axios.get(endpoint)
     .then((response) => {
@@ -26,6 +33,7 @@ export const fetchUsers = function fetchUsersPage(page: number): Promise<UserTil
         street: `${get(user, 'location.number', '')} ${get(user, 'location.name', '')}`,
         thumbnail: get(user, 'picture.large', ''),
         userName: get(user, 'login.username', ''),
+        nat: user.nat,
         id: get(user, 'id.value') || `${user.email}${get(user, 'login.username', '')}`,
       }
       ));
