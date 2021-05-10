@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import UserTilesGrid from '../components/UserTilesGrid';
 import Loader from '../components/Loader';
 import { fetchUsers } from '../utility/randomuser';
 import Search from '../components/Search';
 import FilterContext from '../contexts/filterContext';
 import { SettingsContext } from '../contexts/settingsContext';
+import { RESULTS_LIMIT } from '../constant/config';
 
 export default function Home(): JSX.Element {
   const { settings } = useContext(SettingsContext);
@@ -17,6 +23,7 @@ export default function Home(): JSX.Element {
   const scrollY = useRef(0);
   const windowHeight = useRef(0);
   const documentHeight = useRef(0);
+  const fetchedUsersAmount = useRef(0);
 
   const loadUserList = () => {
     fetchUsers({
@@ -24,24 +31,26 @@ export default function Home(): JSX.Element {
       nat: settings && settings.nat,
     })
       .then((data) => {
+        fetchedUsersAmount.current += data.length;
         const newList = userList.concat(data);
         setUserList(newList);
         setPage(page + 1);
-        if (!data.length) {
+
+        if (!data.length || fetchedUsersAmount.current >= RESULTS_LIMIT) {
           setEndPages(true);
+          setShowLoader(true);
+          return;
         }
+        setShowLoader(false);
       })
       .catch((err) => {
         console.error(err);
-        setShowLoader(false);
-      })
-      .finally(() => {
         setShowLoader(false);
       });
   };
 
   const onScroll = () => {
-    if (showLoader || endPages || window.scrollY === scrollY.current) {
+    if (showLoader || endPages || window.scrollY === scrollY.current || endPages) {
       return;
     }
 
