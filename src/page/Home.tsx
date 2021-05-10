@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import UserTilesGrid from '../components/UserTilesGrid';
 import Loader from '../components/Loader';
-import { UserTilesGridProps } from '../components/UserTilesGrid/UserTilesGrid';
 import { fetchUsers } from '../utility/randomuser';
 import Search from '../components/Search';
 import FilterContext from '../contexts/filterContext';
 
-export default function Home({
-  users,
-}: UserTilesGridProps): JSX.Element {
-  const [userList, setUserList] = useState(users);
-  const [displayedUserList, setDisplayedUserList] = useState(users);
-  const [page, setPage] = useState(2);
+export default function Home(): JSX.Element {
+  const [userList, setUserList] = useState([]);
+  const [displayedUserList, setDisplayedUserList] = useState([]);
+  const [page, setPage] = useState(1);
   const [endPages, setEndPages] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
   const [filterState, setFilterState] = useState({ filter: '' });
@@ -71,9 +68,14 @@ export default function Home({
     setDisplayedUserList(filteredUserList);
   }, [filterState, userList]);
 
+  useEffect(() => {
+    setShowLoader(true);
+    loadUserList();
+  }, []);
+
   return (
     <div>
-      <FilterContext.Provider value={{ setFilterState }}>
+      <FilterContext.Provider value={{ filterState, setFilterState }}>
         <Search />
       </FilterContext.Provider>
       <UserTilesGrid
