@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import UserTilesGrid from '../components/UserTilesGrid';
 import Loader from '../components/Loader';
-import { fetchUsers } from '../utility/randomuser';
+import fetchUsers from '../utility/randomuser';
 import Search from '../components/Search';
 import FilterContext from '../contexts/filterContext';
 import { SettingsContext } from '../contexts/settingsContext';

@@ -10,6 +10,7 @@ const exampleUser = {
   postcode: '1046',
   phone: '05-3370-8052',
   id: '1',
+  nat: 'GB',
 };
 
 export default {

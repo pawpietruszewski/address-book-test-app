@@ -1,11 +1,9 @@
 import axios from 'axios';
 import get from 'lodash.get';
 import { USERS_ENDPOINT, ENDPOINT_SEED, RESULTS_AMOUNT } from '../constant/config';
-import { UserTileProps } from '../UserTile/UserTile';
+import { UserTileProps } from '../components/UserTile/UserTile';
 
-export const VARI = 'tesst';
-
-export const fetchUsers = function fetchUsersPage({
+export default function fetchUsersPage({
   page,
   nat = '',
 } : {
