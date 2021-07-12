@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useState } from 'react';
-import FilterContext from '../../contexts/filterContext';
+import FilterContext from 'src/contexts/filterContext';
 import {
   Wrapper,
   Button,
@@ -8,7 +8,7 @@ import {
 
 const Search = (): JSX.Element => {
   const { setFilterState } = useContext(FilterContext);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState<string>('');
   const searchInput = useRef<HTMLInputElement>();
 
   const handleChange = (event) => {

@@ -54,7 +54,7 @@ const UserTile = ({
   thumbnail,
   userName,
 }: UserTileProps): JSX.Element => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   function openModal() {
     setIsOpen(true);

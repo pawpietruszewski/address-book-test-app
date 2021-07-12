@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
-import mixins from '../../styles/mixins';
-import breakpoints from '../../styles/breakpoints';
+import colors from 'src/styles/colors';
+import mixins from 'src/styles/mixins';
+import breakpoints from 'src/styles/breakpoints';
 
 export const Tile = styled.div`
   border-radius: 20px;

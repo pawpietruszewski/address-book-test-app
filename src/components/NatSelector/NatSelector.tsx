@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { SettingsContext } from '../../contexts/settingsContext';
+import { SettingsContext } from 'src/contexts/settingsContext';
 import {
   Wrapper,
   Select,

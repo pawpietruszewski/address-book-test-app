@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import Head from 'next/head';
-import Header from '../components/Header';
+import Header from 'src/components/Header';
+import GlobalStyles from 'src/styles/globalStyles';
 import { Main } from './style';
-import GlobalStyles from '../styles/globalStyles';
 
 interface MainProps {
   children: ReactElement | ReactElement [];
@@ -22,11 +22,6 @@ const main = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta content={description} name="description" />
-      <script src="public/js/modernizr.js" />
-      <link rel="apple-touch-icon" sizes="180x180" href="public/favicons/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="public/favicons/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="public/favicons/favicon-16x16.png" />
-      <link rel="manifest" href="public/favicons/site.webmanifest" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
     </Head>

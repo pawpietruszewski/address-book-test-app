@@ -1,10 +1,9 @@
 import React from 'react';
+import UserTile, { UserTileProps } from 'src/components/UserTile/UserTile';
 
 import {
   Grid,
 } from './style';
-
-import UserTile, { UserTileProps } from '../UserTile/UserTile';
 
 export interface UserTilesGridProps {
   users: UserTileProps[]

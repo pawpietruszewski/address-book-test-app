@@ -1,7 +1,7 @@
 import axios from 'axios';
 import get from 'lodash.get';
-import { USERS_ENDPOINT, ENDPOINT_SEED, RESULTS_AMOUNT } from '../constant/config';
-import { UserTileProps } from '../components/UserTile/UserTile';
+import { USERS_ENDPOINT, ENDPOINT_SEED, RESULTS_AMOUNT } from 'src/constant/config';
+import { UserTileProps } from 'src/components/UserTile/UserTile';
 
 export default function fetchUsersPage({
   page,

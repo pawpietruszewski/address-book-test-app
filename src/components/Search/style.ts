@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
-import breakpoints from '../../styles/breakpoints';
+import colors from 'src/styles/colors';
+import breakpoints from 'src/styles/breakpoints';
 
 export const Wrapper = styled.div`
   padding: 20px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Logo from '../Logo'; // eslint-disable-line import/no-unresolved
+import Logo from 'src/components/Logo'; // eslint-disable-line import/no-unresolved
 
 import {
   LogoWrapper,

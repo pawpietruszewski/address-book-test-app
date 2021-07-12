@@ -4,26 +4,26 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import UserTilesGrid from '../components/UserTilesGrid';
-import Loader from '../components/Loader';
-import fetchUsers from '../utility/randomuser';
-import Search from '../components/Search';
-import FilterContext from '../contexts/filterContext';
-import { SettingsContext } from '../contexts/settingsContext';
-import { RESULTS_LIMIT } from '../constant/config';
+import UserTilesGrid from 'src/components/UserTilesGrid';
+import Loader from 'src/components/Loader';
+import fetchUsers from 'src/utility/randomuser';
+import Search from 'src/components/Search';
+import FilterContext from 'src/contexts/filterContext';
+import { SettingsContext } from 'src/contexts/settingsContext';
+import { RESULTS_LIMIT } from 'src/constant/config';
 
 export default function Home(): JSX.Element {
   const { settings } = useContext(SettingsContext);
   const [userList, setUserList] = useState([]);
   const [displayedUserList, setDisplayedUserList] = useState([]);
-  const [page, setPage] = useState(1);
-  const [endPages, setEndPages] = useState(false);
-  const [showLoader, setShowLoader] = useState(false);
+  const [page, setPage] = useState<number>(1);
+  const [endPages, setEndPages] = useState<boolean>(false);
+  const [showLoader, setShowLoader] = useState<boolean>(false);
   const [filterState, setFilterState] = useState({ filter: '' });
-  const scrollY = useRef(0);
-  const windowHeight = useRef(0);
-  const documentHeight = useRef(0);
-  const fetchedUsersAmount = useRef(0);
+  const scrollY = useRef<number>(0);
+  const windowHeight = useRef<number>(0);
+  const documentHeight = useRef<number>(0);
+  const fetchedUsersAmount = useRef<number>(0);
 
   const loadUserList = () => {
     fetchUsers({

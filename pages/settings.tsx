@@ -1,3 +1,3 @@
-import Settings from '../src/page/Settings';
+import Settings from 'src/page/Settings';
 
 export default Settings;

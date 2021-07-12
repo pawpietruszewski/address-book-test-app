@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
-import mixins from '../../styles/mixins';
 
 export const Grid = styled.div`
   width: 100%;

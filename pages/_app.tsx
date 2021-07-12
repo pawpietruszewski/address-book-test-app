@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
-import { SettingsProvider } from '../src/contexts/settingsContext';
-import Layout from '../src/layouts/main';
+import { SettingsProvider } from 'src/contexts/settingsContext';
+import Layout from 'src/layouts/main';
 
-import { TITLE } from '../src/constant/meta';
+import { TITLE } from 'src/constant/meta';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

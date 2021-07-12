@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
+import colors from 'src/styles/colors';
 
 export default styled.div`
   font-size: 20px;
